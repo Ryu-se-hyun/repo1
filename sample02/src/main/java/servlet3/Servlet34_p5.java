@@ -1,0 +1,34 @@
+package servlet3;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet("/servlet34/p5")
+public class Servlet34_p5 extends HttpServlet {
+  @Override
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    HttpSession session = request.getSession();
+    
+    request.setCharacterEncoding("UTF-8");
+    System.out.println(request.getParameter("email"));
+    
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
+    out.println("<html><head><title>p1</title></head>");
+    out.println("<body>");
+    out.printf("성함 = %s<br>\n", session.getAttribute("name"));
+    out.printf("연세 = %s<br>\n", session.getAttribute("age"));
+    out.printf("전자우편 = %s<br>\n", session.getAttribute("email"));
+    out.println("</body></html>");
+  }  
+}
+
