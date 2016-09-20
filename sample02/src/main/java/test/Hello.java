@@ -5,7 +5,7 @@ public class Hello {
     
     System.out.println("Hello1");
     System.out.println("별이되어라라라라라라랄");
-    
+    System.out.println("충돌나라");
   }
 
 }
